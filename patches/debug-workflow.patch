@@ -1,0 +1,23 @@
+diff --git a/modules/lightning_scheduler/tests/features/transitions.feature b/modules/lightning_scheduler/tests/features/transitions.feature
+index c60c4df..a0cbe76 100644
+--- a/modules/lightning_scheduler/tests/features/transitions.feature
++++ b/modules/lightning_scheduler/tests/features/transitions.feature
+@@ -31,6 +31,18 @@ Feature: Scheduling transitions on content
+     Then I should see "Current state Published"
+     And exactly 1 element should match ".scheduled-transition.past"
+ 
++  @bafaf902
++  Scenario: Automatically publishing way in the past
++    When I click "Schedule a status change"
++    And I select "Published" from "Scheduled moderation state"
++    And I set "Scheduled transition time" to 86400 seconds ago
++    And I press "Save transition"
++    And I press "Save"
++    And I run cron over HTTP
++    And I visit the edit form
++    Then I should see "Current state Published"
++    And exactly 1 element should match ".scheduled-transition.past"
++
+   @368f0045
+   Scenario: Automatically publishing, then unpublishing, in the future
+     When I click "Schedule a status change"
