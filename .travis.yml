@@ -87,9 +87,9 @@ before_script:
 script:
   - composer validate composer.json --no-check-all --ansi --no-interaction
   - cd docroot
-  - phpunit --configuration ./core --group lightning,profiles
+  #- phpunit --configuration ./core --group lightning,profiles
   - cd ..
-  - behat --config .behat.yml --tags=bafaf901,bafaf902
+  - behat --config .behat.yml --tags=55c3c017,bafaf901,bafaf902
 
 after_failure:
   - cd docroot
