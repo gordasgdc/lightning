@@ -89,7 +89,7 @@ script:
   - cd docroot
   #- phpunit --configuration ./core --group lightning,profiles
   - cd ..
-  - behat --config .behat.yml --tags=55c3c017,bafaf901,bafaf902
+  - behat --config .behat.yml --tags=19678505,55c3c017,bafaf901,bafaf902
 
 after_failure:
   - cd docroot
